@@ -28,7 +28,7 @@ class Arquitectura(nn.Module):
         self.lin1 = nn.Linear(256, 4096)
         self.lin2 = nn.Linear(4096, 256)
         self.lin3 = nn.Linear(256, numclasses)
-    def forward(self, x):
+    def forward(self, x, temp: float = 1.0):
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.pool(x)
@@ -57,4 +57,5 @@ class Arquitectura(nn.Module):
         x = self.sigmoid(x)
         x = self.dropout(x)
         x = self.lin3(x)
+        x = x / temp
         return x

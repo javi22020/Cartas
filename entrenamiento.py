@@ -28,7 +28,7 @@ modelo = Arquitectura(numclasses=len(dataset.classes)).to(device)
 # Definimos la funcion de perdida y el optimizador
 
 criterio = nn.CrossEntropyLoss()
-optimizador = optim.Adam(modelo.parameters(), lr=0.001)
+optimizador = optim.Adam(modelo.parameters(), lr=0.0001)
 
 # Entrenamiento
 
